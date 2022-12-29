@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+<div  align=center>
+	<h1>Shopping Cart
+	<br>
+		<img src="https://img.shields.io/static/v1?label=&message=React&color=61DAFB&style=for-the-badge&logo=react&logoColor=black&logoWidth=&labelColor=&link=">
+		<img src="https://img.shields.io/static/v1?label=&message=TypeScript&color=3178C6&style=for-the-badge&logo=typescript&logoColor=white&logoWidth=&labelColor=&link=">
+		<img src="https://img.shields.io/static/v1?label=&message=Tailwindcss&color=06B6D4&style=for-the-badge&logo=tailwindcss&logoColor=white&logoWidth=&labelColor=&link=">
+		<br>
+	</h1>
+	<h3><b><a href="https://clarasmyth.github.io/shopping-cart">View Live Demo</a></b></h3>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Gif of Project](./readme-assets/shopping-cart.gif)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This is a webpage with a shopping cart created as part of [TheOdinProject](https://www.theodinproject.com) curriculum.
 
-### `npm start`
+To see the assignment details - [Click Here](https://www.theodinproject.com/lessons/node-path-javascript-shopping-cart)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Built Using
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React <img height="16" width="16" src="https://cdn.simpleicons.org/react" />
+- TypeScript <img height="16" width="16" src="https://cdn.simpleicons.org/typescript" />
+- Tailwindcss <img height="16" width="16" src="https://cdn.simpleicons.org/tailwindcss" />
+- ESLint <img height="16" width="16" src="https://cdn.simpleicons.org/eslint" />
+- Prettier <img height="16" width="16" src="https://cdn.simpleicons.org/prettier" />
 
-### `npm test`
+## Credits
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Libraries
 
-### `npm run build`
+#### Images
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Icons
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React Icons](https://github.com/react-icons/react-icons)
+- [Simple Icons](https://simpleicons.org/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Gallery
 
-### `npm run eject`
+#### Desktop
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="./readme-assets/desktop.png" alt="Image of project on Desktop" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Mobile
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="./readme-assets/mobile.png" alt="Image of project on Mobile" />
