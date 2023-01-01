@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Navbar, Home, Store, CheckoutModal } from './components';
-import MobileNav from './components/MobileNav';
+import { Navbar, Home, Store, CheckoutModal, MobileNav } from './components';
 
 function App() {
   return (
