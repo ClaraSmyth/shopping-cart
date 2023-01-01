@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div className="navbar hidden h-min bg-base-100 transition-all sm:flex">
+    <div className="navbar z-10 hidden h-min bg-base-100 transition-all sm:flex">
       {/* Logo */}
       <div>
         <Link to="/" className="btn-ghost btn text-xl normal-case">
