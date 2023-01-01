@@ -52,3 +52,16 @@
     isolation: isolate;
   }
 }
+
+/* Custom scrollbar for webkit browsers */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
+  border-radius: 20px;
+  border: transparent;
+}
