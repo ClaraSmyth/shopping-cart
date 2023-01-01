@@ -1,16 +1,18 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Navbar, Home, Store } from './components';
+import { Navbar, Home, Store, CheckoutModal } from './components';
 
 function App() {
   return (
-    <div className="flex h-full flex-col bg-base-300">
+    <div className="grid h-full overflow-hidden bg-base-300 sm:grid-rows-[min-content,1fr]">
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
       </Routes>
+
+      <CheckoutModal />
     </div>
   );
 }
