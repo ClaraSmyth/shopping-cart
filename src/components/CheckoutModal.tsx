@@ -11,7 +11,7 @@ function CheckoutModal() {
 
           <div className="divider m-0"></div>
 
-          <div className="flex h-72 w-full flex-col gap-2 overflow-y-scroll pr-2">
+          <div className="flex h-72 w-full max-w-full flex-col gap-2 overflow-y-scroll pr-2">
             <CheckoutCard />
             <CheckoutCard />
             <CheckoutCard />
@@ -22,8 +22,8 @@ function CheckoutModal() {
 
           <div className="divider m-0"></div>
 
-          <p className="ml-auto">
-            Total: <span className="font-bold">COST</span>
+          <p className="ml-auto mr-7">
+            Subtotal: <span className="font-bold">COST</span>
           </p>
 
           <div className="divider m-0"></div>

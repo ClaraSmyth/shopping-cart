@@ -10,7 +10,7 @@ function Card() {
       </figure>
       <div className="card-body relative">
         {/* Title */}
-        <h2 className="custom-text-ellipsis card-title overflow-hidden">Game Nameadfadf dfasdfasdfa sdasdfasdf</h2>
+        <h2 className="custom-text-ellipsis-2 card-title">Game Name</h2>
         <div className="card-actions items-center justify-between">
           {/* Price Badge */}
           <button className="badge badge-lg">£19.99</button>

@@ -12,7 +12,7 @@ function Navbar() {
       </div>
 
       {/* Nav Items */}
-      <ul className="menu rounded-box menu-horizontal flex-1 flex-nowrap bg-base-100 p-2">
+      <ul className="menu rounded-box menu-horizontal flex-1 flex-nowrap gap-2 bg-base-100 p-2">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -27,7 +27,7 @@ function Navbar() {
       </div>
 
       {/* Checkout Modal Button */}
-      <label tabIndex={0} htmlFor="checkout-modal" className="btn-ghost btn-circle btn">
+      <label tabIndex={0} htmlFor="checkout-modal" className="btn-ghost btn-circle btn ml-2">
         <div className="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
