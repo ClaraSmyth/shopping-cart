@@ -11,7 +11,9 @@ function CheckoutModal() {
 
           <div className="divider m-0"></div>
 
-          <div className="flex w-full flex-col gap-2">
+          <div className="flex h-72 w-full flex-col gap-2 overflow-y-scroll pr-2">
+            <CheckoutCard />
+            <CheckoutCard />
             <CheckoutCard />
             <CheckoutCard />
             <CheckoutCard />
