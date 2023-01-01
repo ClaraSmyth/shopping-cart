@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
   return (
-    <div className="flex flex-grow items-center justify-center">
+    <div className="flex items-center justify-center">
       <div className="flex w-min flex-col gap-6 p-4">
         {/* Header */}
         <h1 className="min-w-max text-7xl font-bold">
