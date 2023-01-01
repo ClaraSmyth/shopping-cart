@@ -11,7 +11,7 @@ function Card() {
       <div className="card-body relative">
         {/* Title */}
         <h2 className="custom-text-ellipsis-2 card-title">Game Name</h2>
-        <div className="card-actions items-center justify-between">
+        <div className="card-actions min-w-max flex-nowrap items-center justify-between">
           {/* Price Badge */}
           <button className="badge badge-lg">£19.99</button>
           {/* But Now Button */}
