@@ -1,10 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar, Home, Store, CheckoutModal } from './components';
+import MobileNav from './components/MobileNav';
 
 function App() {
   return (
-    <div className="grid h-full overflow-hidden bg-base-300 sm:grid-rows-[min-content,1fr]">
+    <div className="grid h-full overflow-hidden bg-base-300 pb-16 sm:grid-rows-[min-content,1fr] sm:pb-0">
       <Navbar />
 
       <Routes>
@@ -12,6 +13,7 @@ function App() {
         <Route path="/store" element={<Store />} />
       </Routes>
 
+      <MobileNav />
       <CheckoutModal />
     </div>
   );
