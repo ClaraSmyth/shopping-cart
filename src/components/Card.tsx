@@ -1,19 +1,26 @@
 import React from 'react';
 import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
-function Card() {
+interface Props {
+  name: string;
+  price: number;
+  image: string;
+}
+
+function Card(props: Props) {
+  const { name, price, image } = props;
   return (
-    <div className="border-rad card-compact card overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]">
+    <div className="card-compact card h-64 overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:h-28 max-[430px]:grid-cols-[40%,1fr]">
       <figure className="overflow-hidden rounded-none">
         {/* Card Image */}
-        <img className="h-full object-cover" src="https://placeimg.com/400/225/arch" alt="Shoes" />
+        <img className="min-h-full object-cover" src={image} alt="Shoes" />
       </figure>
-      <div className="card-body relative">
+      <div className="card-body relative justify-around">
         {/* Title */}
-        <h2 className="custom-text-ellipsis-1 card-title">Game Name adfasd fasdf asdf asdf asdfasdf</h2>
+        <h2 className="custom-text-ellipsis-1 card-title">{name}</h2>
         <div className="card-actions min-w-max items-center justify-between">
           {/* Price Badge */}
-          <button className="badge badge-lg">£19.99</button>
+          <button className="badge badge-lg">£{price}</button>
           {/* But Now Button */}
           <button className="btn-primary btn-sm btn">
             <MdOutlineAddShoppingCart size={'24px'} />
