@@ -10,12 +10,12 @@ interface Props {
 function Card(props: Props) {
   const { name, price, image } = props;
   return (
-    <div className="card-compact card h-64 overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:h-28 max-[430px]:grid-cols-[40%,1fr]">
-      <figure className="overflow-hidden rounded-none">
+    <div className="card-compact card overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]">
+      <figure className="h-28 overflow-hidden rounded-none">
         {/* Card Image */}
         <img className="min-h-full object-cover" src={image} alt="Shoes" />
       </figure>
-      <div className="card-body relative justify-around">
+      <div className="card-body relative justify-between">
         {/* Title */}
         <h2 className="custom-text-ellipsis-1 card-title">{name}</h2>
         <div className="card-actions min-w-max items-center justify-between">
