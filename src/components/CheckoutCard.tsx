@@ -15,7 +15,7 @@ function CheckoutCard() {
         <div className="mt-1 flex max-w-max gap-2">
           <select className=" select-bordered select select-xs w-full max-w-max bg-[calc(100%-12px)calc(1px+50%),calc(100%-8px)calc(1px+50%)] pr-4 pl-1 text-center">
             <option disabled>Qty</option>
-            <option selected>1</option>
+            <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
@@ -26,7 +26,7 @@ function CheckoutCard() {
             <option>9</option>
           </select>
           <button className="btn-error btn-xs btn px-1">
-            <MdDeleteForever size={'1.3rem'} />
+            <MdDeleteForever size={'20px'} />
           </button>
         </div>
       </div>
