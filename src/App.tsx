@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar, Home, Store, CheckoutModal, MobileNav } from './components';
+import { Game } from './types';
 
 function App() {
+  const [cart, setCart] = useState<Game[]>([]);
+
+  const addToCart = (obj: Game) => setCart((prev) => [...prev, obj]);
+  const removeFromCart = (obj: Game) => setCart((prev) => [...prev.filter((item) => item.id !== obj.id)]);
+
   return (
     <div className="grid h-full overflow-x-hidden overflow-y-scroll bg-base-300 pb-16 sm:grid-rows-[min-content,1fr] sm:pb-0">
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Store />} />
+        <Route path="/store" element={<Store addToCart={addToCart} />} />
       </Routes>
 
       <MobileNav />
-      <CheckoutModal />
+      <CheckoutModal cart={cart} removeFromCart={removeFromCart} />
     </div>
   );
 }
