@@ -6,7 +6,10 @@ import { Game } from './types';
 function App() {
   const [cart, setCart] = useState<Game[]>([]);
 
-  const addToCart = (obj: Game) => setCart((prev) => [...prev, obj]);
+  const addToCart = (obj: Game) => {
+    if (cart.some((item) => item.id === obj.id)) return;
+    setCart((prev) => [...prev, obj]);
+  };
   const removeFromCart = (obj: Game) => setCart((prev) => [...prev.filter((item) => item.id !== obj.id)]);
   const updateCartQty = (obj: Game, num: number) => {
     setCart((prev) => [...prev.map((item) => (item.id === obj.id ? { ...item, quantity: num } : item))]);
