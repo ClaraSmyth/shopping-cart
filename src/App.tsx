@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar, Home, Store, CheckoutModal, MobileNav } from './components';
-import useCart from './hooks/useCart';
+import { useCart } from './hooks';
 
 function App() {
   const { cart, updateCart } = useCart();
