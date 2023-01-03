@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Game } from '../types';
 
-function Navbar() {
+interface Props {
+  cart: Game[];
+}
+
+function Navbar(props: Props) {
+  const { cart } = props;
   return (
     <div className="navbar z-10 hidden h-min bg-base-100 transition-all sm:flex">
       {/* Logo */}
@@ -43,7 +49,7 @@ function Navbar() {
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <span className="badge badge-sm indicator-item">8</span>
+          <span className="badge badge-sm indicator-item">{cart.length < 10 ? cart.length : '9+'}</span>
         </div>
       </label>
     </div>
