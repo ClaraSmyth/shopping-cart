@@ -1,15 +1,15 @@
 import React from 'react';
+import { UpdateCartMethods } from '../hooks/useCart';
 import { Game } from '../types';
 import CheckoutCard from './CheckoutCard';
 
 interface Props {
   cart: Game[];
-  removeFromCart: Function;
-  updateCartQty: Function;
+  updateCart: UpdateCartMethods;
 }
 
 function CheckoutModal(props: Props) {
-  const { cart, removeFromCart, updateCartQty } = props;
+  const { cart, updateCart } = props;
   const subTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 
   return (
@@ -26,7 +26,7 @@ function CheckoutModal(props: Props) {
 
           <div className="flex h-72 w-full max-w-full flex-col gap-2 overflow-y-scroll pr-2">
             {cart.map((obj) => (
-              <CheckoutCard key={obj.id} game={obj} removeFromCart={removeFromCart} updateCartQty={updateCartQty} />
+              <CheckoutCard key={obj.id} game={obj} updateCart={updateCart} />
             ))}
           </div>
 

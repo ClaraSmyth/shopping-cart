@@ -1,15 +1,15 @@
 import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
+import { UpdateCartMethods } from '../hooks/useCart';
 import { Game } from '../types';
 
 interface Props {
   game: Game;
-  removeFromCart: Function;
-  updateCartQty: Function;
+  updateCart: UpdateCartMethods;
 }
 
 function CheckoutCard(props: Props) {
-  const { game, removeFromCart, updateCartQty } = props;
+  const { game, updateCart } = props;
 
   return (
     <div className="card rounded-box h-16 flex-row bg-base-300 p-1">
@@ -19,7 +19,7 @@ function CheckoutCard(props: Props) {
         <p className="custom-text-ellipsis-1">{game.name}</p>
         <div className="mt-1 flex max-w-max gap-2">
           <select
-            onChange={(e) => updateCartQty(game, e.target.value)}
+            onChange={(e) => updateCart.changeQty(game, parseFloat(e.target.value))}
             defaultValue={game.quantity}
             className="select-bordered select select-xs w-full max-w-max bg-[calc(100%-12px)calc(1px+50%),calc(100%-8px)calc(1px+50%)] pr-4 pl-1 text-center"
           >
@@ -34,7 +34,7 @@ function CheckoutCard(props: Props) {
             <option>8</option>
             <option>9</option>
           </select>
-          <button onClick={() => removeFromCart(game)} className="btn-error btn-xs btn px-1">
+          <button onClick={() => updateCart.remove(game)} className="btn-error btn-xs btn px-1">
             <MdDeleteForever size={'20px'} />
           </button>
         </div>
