@@ -7,6 +7,7 @@ export interface IUseCartOutput {
     add: (obj: Game) => void;
     remove: (obj: Game) => void;
     changeQty: (obj: Game, num: number) => void;
+    empty: () => void;
   };
 }
 
@@ -26,12 +27,15 @@ function useCart(): IUseCartOutput {
     setCart((prev) => [...prev.map((item) => (item.id === obj.id ? { ...item, quantity: num } : item))]);
   }, []);
 
+  const empty = useCallback(() => setCart([]), []);
+
   return {
     cart,
     updateCart: {
       add,
       remove,
       changeQty,
+      empty,
     },
   };
 }
