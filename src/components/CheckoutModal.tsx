@@ -10,7 +10,7 @@ interface Props {
 
 function CheckoutModal(props: Props) {
   const { cart, removeFromCart, updateCartQty } = props;
-  const subTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const subTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 
   return (
     <>
