@@ -1,11 +1,11 @@
 import React from 'react';
-import { UpdateCartMethods } from '../hooks/useCart';
+import { IUseCartOutput } from '../hooks/useCart';
 import { Game } from '../types';
 import CheckoutCard from './CheckoutCard';
 
 interface Props {
   cart: Game[];
-  updateCart: UpdateCartMethods;
+  updateCart: IUseCartOutput['updateCart'];
 }
 
 function CheckoutModal(props: Props) {

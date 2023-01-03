@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from './Card';
 import testData from '../testData.json';
-import { UpdateCartMethods } from '../hooks/useCart';
+import { IUseCartOutput } from '../hooks/useCart';
 
 interface Props {
-  updateCart: UpdateCartMethods;
+  updateCart: IUseCartOutput['updateCart'];
 }
 
 function Store(props: Props) {
