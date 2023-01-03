@@ -5,11 +5,12 @@ import CheckoutCard from './CheckoutCard';
 interface Props {
   cart: Game[];
   removeFromCart: Function;
+  updateCartQty: Function;
 }
 
 function CheckoutModal(props: Props) {
-  const { cart, removeFromCart } = props;
-  const subTotal = cart.reduce((total, item) => total + item.price, 0);
+  const { cart, removeFromCart, updateCartQty } = props;
+  const subTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <>
@@ -22,7 +23,7 @@ function CheckoutModal(props: Props) {
 
           <div className="flex h-72 w-full max-w-full flex-col gap-2 overflow-y-scroll pr-2">
             {cart.map((obj) => (
-              <CheckoutCard key={obj.id} game={obj} removeFromCart={removeFromCart} />
+              <CheckoutCard key={obj.id} game={obj} removeFromCart={removeFromCart} updateCartQty={updateCartQty} />
             ))}
           </div>
 
