@@ -8,14 +8,14 @@ function App() {
 
   return (
     <div className="grid h-full overflow-x-hidden overflow-y-scroll bg-base-300 pb-16 sm:grid-rows-[min-content,1fr] sm:pb-0">
-      <Navbar />
+      <Navbar cart={cart} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store updateCart={updateCart} />} />
       </Routes>
 
-      <MobileNav />
+      <MobileNav cart={cart} />
       <CheckoutModal cart={cart} updateCart={updateCart} />
     </div>
   );
