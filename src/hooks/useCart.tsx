@@ -1,18 +1,16 @@
 import { useState, useCallback } from 'react';
 import { Game } from '../types';
 
-export interface UpdateCartMethods {
-  add: (obj: Game) => void;
-  remove: (obj: Game) => void;
-  changeQty: (obj: Game, num: number) => void;
-}
-
-interface UseCartOutput {
+export interface IUseCartOutput {
   cart: Game[];
-  updateCart: UpdateCartMethods;
+  updateCart: {
+    add: (obj: Game) => void;
+    remove: (obj: Game) => void;
+    changeQty: (obj: Game, num: number) => void;
+  };
 }
 
-function useCart(): UseCartOutput {
+function useCart(): IUseCartOutput {
   const [cart, setCart] = useState<Game[]>([]);
 
   const add = useCallback((obj: Game) => {
