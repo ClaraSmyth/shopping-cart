@@ -12,7 +12,7 @@ function CheckoutModal(props: Props) {
   const subTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 
   return (
-    <>
+    <div>
       <input type="checkbox" id="checkout-modal" className="modal-toggle" />
       <label htmlFor="checkout-modal" className="modal min-w-min cursor-pointer">
         <label className="modal-box relative mx-2 flex w-full max-w-md flex-col gap-2" htmlFor="">
@@ -37,10 +37,12 @@ function CheckoutModal(props: Props) {
 
           <div className="divider m-0"></div>
 
-          <button className="btn-primary btn w-full">Proceed</button>
+          <label onClick={updateCart.empty} tabIndex={0} htmlFor="checkout-modal" className="btn-primary btn w-full">
+            Proceed
+          </label>
         </label>
       </label>
-    </>
+    </div>
   );
 }
 
