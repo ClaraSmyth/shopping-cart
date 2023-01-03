@@ -19,7 +19,10 @@ function CheckoutModal(props: Props) {
         <label className="modal-box relative mx-2 flex w-full max-w-md flex-col gap-2" htmlFor="">
           <h3 className="text-2xl font-bold">Checkout</h3>
 
-          <div className="divider m-0"></div>
+          <div className="relative">
+            <p className="absolute -top-4 right-8 text-sm">Price</p>
+            <div className="divider m-0"></div>
+          </div>
 
           <div className="flex h-72 w-full max-w-full flex-col gap-2 overflow-y-scroll pr-2">
             {cart.map((obj) => (
@@ -30,7 +33,7 @@ function CheckoutModal(props: Props) {
           <div className="divider m-0"></div>
 
           <p className="ml-auto mr-7">
-            Subtotal: <span className="font-bold">{subTotal}</span>
+            Subtotal: <span className="font-bold">£{subTotal}</span>
           </p>
 
           <div className="divider m-0"></div>

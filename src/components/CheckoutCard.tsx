@@ -41,7 +41,7 @@ function CheckoutCard(props: Props) {
       </div>
 
       <div className="divider divider-horizontal mx-0"></div>
-      <p className="mr-1 flex max-w-[4rem] flex-1 items-center justify-center">{game.price}</p>
+      <p className="mr-1 flex max-w-[4rem] flex-1 items-center justify-center">£{game.price}</p>
     </div>
   );
 }
