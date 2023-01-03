@@ -13,7 +13,7 @@ function Card(props: Props) {
     <div className="card-compact card overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]">
       <figure className="h-28 overflow-hidden rounded-none">
         {/* Card Image */}
-        <img className="min-h-full object-cover" src={game.image} alt="Shoes" />
+        <img className="min-h-full object-cover" src={game.background_image} alt="Shoes" />
       </figure>
       <div className="card-body relative justify-between">
         {/* Title */}
