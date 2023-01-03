@@ -1,10 +1,9 @@
 import React from 'react';
 import { IUseCartOutput } from '../hooks/useCart';
-import { Game } from '../types';
 import CheckoutCard from './CheckoutCard';
 
 interface Props {
-  cart: Game[];
+  cart: IUseCartOutput['cart'];
   updateCart: IUseCartOutput['updateCart'];
 }
 
