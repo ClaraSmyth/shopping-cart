@@ -9,6 +9,7 @@ interface Props {
 
 function CheckoutModal(props: Props) {
   const { cart, removeFromCart } = props;
+  const subTotal = cart.reduce((total, item) => total + item.price, 0);
 
   return (
     <>
@@ -28,7 +29,7 @@ function CheckoutModal(props: Props) {
           <div className="divider m-0"></div>
 
           <p className="ml-auto mr-7">
-            Subtotal: <span className="font-bold">COST</span>
+            Subtotal: <span className="font-bold">{subTotal}</span>
           </p>
 
           <div className="divider m-0"></div>
