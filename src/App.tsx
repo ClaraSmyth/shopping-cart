@@ -12,7 +12,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Store updateCart={updateCart} />} />
+        <Route path="/store" element={<Store cart={cart} updateCart={updateCart} />} />
       </Routes>
 
       <MobileNav cart={cart} />
