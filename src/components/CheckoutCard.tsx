@@ -13,7 +13,11 @@ function CheckoutCard(props: Props) {
 
   return (
     <div className="card rounded-box h-16 flex-row bg-base-300 p-1">
-      <img className="mask mask-squircle aspect-square max-h-full object-cover" src={game.background_image} alt="" />
+      <img
+        className="mask mask-squircle m-1 aspect-square max-h-full object-cover"
+        src={game.background_image}
+        alt=""
+      />
 
       <div className="flex flex-1 flex-col overflow-auto pl-2">
         <p className="custom-text-ellipsis-1">{game.name}</p>
