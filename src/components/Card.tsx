@@ -1,15 +1,17 @@
 import React from 'react';
-import { MdOutlineAddShoppingCart } from 'react-icons/md';
+import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md';
 import { IUseCartOutput } from '../hooks/useCart';
 import { Game } from '../types';
 
 interface Props {
   game: Game;
+  cart: IUseCartOutput['cart'];
   updateCart: IUseCartOutput['updateCart'];
 }
 
 function Card(props: Props) {
-  const { game, updateCart } = props;
+  const { game, cart, updateCart } = props;
+  const isInCart = cart.some((item) => item.id === game.id);
 
   return (
     <div className="card-compact card overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]">
@@ -24,8 +26,12 @@ function Card(props: Props) {
           {/* Price Badge */}
           <button className="badge badge-lg">£{game.price}</button>
           {/* But Now Button */}
-          <button onClick={() => updateCart.add(game)} className="btn-primary btn-sm btn">
-            <MdOutlineAddShoppingCart size={'24px'} />
+          <button
+            onClick={() => (isInCart ? updateCart.remove(game) : updateCart.add(game))}
+            data-isincart={isInCart}
+            className="btn-primary btn-sm btn data-[isincart=true]:btn-error"
+          >
+            {isInCart ? <MdOutlineRemoveShoppingCart size={'1.25em'} /> : <MdOutlineAddShoppingCart size={'1.25em'} />}
           </button>
         </div>
       </div>
