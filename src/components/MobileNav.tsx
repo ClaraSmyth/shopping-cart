@@ -1,22 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Game } from '../types';
+import { NavLink } from 'react-router-dom';
+import { IGame } from '../types';
 import { MdStorefront, MdOutlineShoppingCart, MdOutlineHome } from 'react-icons/md';
 
 interface Props {
-  cart: Game[];
+  cart: IGame[];
 }
 
 function MobileNav(props: Props) {
   const { cart } = props;
   return (
     <div className="btm-nav sm:hidden">
-      <Link to="/" className="text-primary">
+      <NavLink to="/" className="text-primary">
         <MdOutlineHome size={'1.5rem'} />
-      </Link>
-      <Link to="/store" className="active text-primary">
+      </NavLink>
+      <NavLink to="/store" className="text-primary">
         <MdStorefront size={'1.5rem'} />
-      </Link>
+      </NavLink>
       <label tabIndex={0} htmlFor="checkout-modal" className="text-primary">
         <div className="indicator">
           <MdOutlineShoppingCart size={'1.5rem'} />
