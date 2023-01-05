@@ -14,7 +14,7 @@ function Card(props: Props) {
   const isInCart = cart.some((item) => item.id === game.id);
 
   return (
-    <div className="card-compact card overflow-hidden bg-base-100 shadow-xl max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]">
+    <div className="card-compact card cursor-pointer overflow-hidden bg-base-100 shadow-xl transition hover:scale-105 max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]">
       <figure className="h-28 overflow-hidden rounded-none">
         {/* Card Image */}
         <img className="min-h-full object-cover" src={game.background_image} alt="Shoes" />
