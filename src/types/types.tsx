@@ -1,6 +1,6 @@
-interface Game {
+interface IGame {
   id: number;
   [key: string]: any;
 }
 
-export type { Game };
+export type { IGame };
