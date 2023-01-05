@@ -61,14 +61,17 @@ function Game(props: Props) {
             <div className="card-actions justify-end">
               <button
                 onClick={() => (isInCart ? updateCart.remove(game) : updateCart.add(game))}
-                className={`btn-primary btn w-full gap-2 ${isInCart && 'btn-error'}`}
+                className={`btn-primary btn w-full flex-nowrap justify-between gap-2 ${isInCart && 'btn-error'}`}
               >
-                {isInCart ? 'Remove From Cart' : 'Add To Cart'}
-                {isInCart ? (
-                  <MdOutlineRemoveShoppingCart size={'1.5em'} />
-                ) : (
-                  <MdOutlineAddShoppingCart size={'1.5em'} />
-                )}
+                <div className="text-lg">£{game.price}</div>
+                <div className="flex flex-nowrap items-center gap-2">
+                  {isInCart ? 'Remove From Cart' : 'Add To Cart'}
+                  {isInCart ? (
+                    <MdOutlineRemoveShoppingCart size={'1.5em'} />
+                  ) : (
+                    <MdOutlineAddShoppingCart size={'1.5em'} />
+                  )}
+                </div>
               </button>
             </div>
           </div>
