@@ -1,29 +1,29 @@
 import { useState, useCallback } from 'react';
-import { Game } from '../types';
+import { IGame } from '../types';
 
 export interface IUseCartOutput {
-  cart: Game[];
+  cart: IGame[];
   updateCart: {
-    add: (obj: Game) => void;
-    remove: (obj: Game) => void;
-    changeQty: (obj: Game, num: number) => void;
+    add: (obj: IGame) => void;
+    remove: (obj: IGame) => void;
+    changeQty: (obj: IGame, num: number) => void;
     empty: () => void;
   };
 }
 
 function useCart(): IUseCartOutput {
-  const [cart, setCart] = useState<Game[]>([]);
+  const [cart, setCart] = useState<IGame[]>([]);
 
-  const add = useCallback((obj: Game) => {
+  const add = useCallback((obj: IGame) => {
     setCart((prev) => {
       if (prev.some((item) => item.id === obj.id)) return [...prev];
       return [...prev, obj];
     });
   }, []);
 
-  const remove = useCallback((obj: Game) => setCart((prev) => [...prev.filter((item) => item.id !== obj.id)]), []);
+  const remove = useCallback((obj: IGame) => setCart((prev) => [...prev.filter((item) => item.id !== obj.id)]), []);
 
-  const changeQty = useCallback((obj: Game, num: number) => {
+  const changeQty = useCallback((obj: IGame, num: number) => {
     setCart((prev) => [...prev.map((item) => (item.id === obj.id ? { ...item, quantity: num } : item))]);
   }, []);
 

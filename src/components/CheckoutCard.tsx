@@ -1,10 +1,10 @@
 import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 import { IUseCartOutput } from '../hooks/useCart';
-import { Game } from '../types';
+import { IGame } from '../types';
 
 interface Props {
-  game: Game;
+  game: IGame;
   updateCart: IUseCartOutput['updateCart'];
 }
 

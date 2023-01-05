@@ -1,10 +1,10 @@
 import React from 'react';
 import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md';
 import { IUseCartOutput } from '../hooks/useCart';
-import { Game } from '../types';
+import { IGame } from '../types';
 
 interface Props {
-  game: Game;
+  game: IGame;
   cart: IUseCartOutput['cart'];
   updateCart: IUseCartOutput['updateCart'];
 }
@@ -28,10 +28,9 @@ function Card(props: Props) {
           {/* But Now Button */}
           <button
             onClick={() => (isInCart ? updateCart.remove(game) : updateCart.add(game))}
-            data-isincart={isInCart}
-            className="btn-primary btn-sm btn data-[isincart=true]:btn-error"
+            className={`btn-primary btn-sm btn ${isInCart && 'btn-error'}`}
           >
-            {isInCart ? <MdOutlineRemoveShoppingCart size={'1.25em'} /> : <MdOutlineAddShoppingCart size={'1.25em'} />}
+            {isInCart ? <MdOutlineRemoveShoppingCart size={'1.5em'} /> : <MdOutlineAddShoppingCart size={'1.5em'} />}
           </button>
         </div>
       </div>
