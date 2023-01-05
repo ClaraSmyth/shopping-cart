@@ -24,6 +24,9 @@ function CheckoutModal(props: Props) {
           </div>
 
           <div className="flex h-72 w-full max-w-full flex-col gap-2 overflow-y-scroll pr-2">
+            {!cart.length && (
+              <div className="text-center text-xl font-semibold text-base-content/40">Cart is Empty</div>
+            )}
             {cart.map((obj) => (
               <CheckoutCard key={obj.id} game={obj} updateCart={updateCart} />
             ))}
