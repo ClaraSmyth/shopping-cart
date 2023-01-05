@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Navbar, Home, Store, CheckoutModal, MobileNav } from './components';
+import { Navbar, Home, Store, CheckoutModal, MobileNav, Game } from './components';
 import { useCart } from './hooks';
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store cart={cart} updateCart={updateCart} />} />
+        <Route path="/store/:slug" element={<Game cart={cart} updateCart={updateCart} />} />
       </Routes>
 
       <MobileNav cart={cart} />
