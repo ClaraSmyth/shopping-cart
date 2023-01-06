@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IUseCartOutput } from '../hooks/useCart';
-import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md';
+import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart, MdWebAsset } from 'react-icons/md';
+import { SiWindows, SiPlaystation, SiXbox, SiNintendo, SiApple, SiIos, SiAndroid, SiLinux } from 'react-icons/si';
 import game from '../testData2';
 
 interface Props {
@@ -14,15 +15,43 @@ function Game(props: Props) {
   const isInCart = cart.some((item) => item.id === game.id);
 
   return (
-    <div className="grid max-h-full grid-cols-1 grid-rows-[min-content,2fr,3fr] gap-4 p-4 md:grid-cols-[2fr,1fr] md:grid-rows-[min-content,1fr]">
+    <div className="grid max-h-full grid-cols-1 grid-rows-[min-content,2fr,3fr] gap-4 p-4 md:grid-cols-[2fr,1fr] md:grid-rows-[min-content,min-content,1fr]">
       <h2 className="card-title justify-center text-center text-2xl md:col-start-2 md:text-[clamp(1.5rem,0.357rem+2.381vw,2.5rem)] md:leading-none">
         {game.name}
       </h2>
 
       <div
         style={{ backgroundImage: `url(${game.background_image})` }}
-        className="relative flex items-center overflow-hidden rounded-2xl bg-slate-500 bg-cover bg-center md:col-end-2 md:row-span-2 md:row-start-1"
+        className="relative flex items-center overflow-hidden rounded-2xl bg-slate-500 bg-cover bg-center md:col-end-2 md:row-span-3 md:row-start-1"
       ></div>
+
+      <div className="hidden items-center rounded-2xl bg-base-100 p-4 md:grid md:grid-cols-[1fr,min-content]">
+        <div className="flex gap-2">
+          {game.parent_platforms.map((platform) => (
+            <>
+              {platform.platform.slug === 'pc' && <SiWindows size={'1.5em'} />}
+              {platform.platform.slug === 'playstation' && <SiPlaystation size={'1.5em'} />}
+              {platform.platform.slug === 'xbox' && <SiXbox size={'1.5em'} />}
+              {platform.platform.slug === 'nintendo' && <SiNintendo size={'1.5em'} />}
+              {platform.platform.slug === 'apple' && <SiApple size={'1.5em'} />}
+              {platform.platform.slug === 'ios' && <SiIos size={'1.5em'} />}
+              {platform.platform.slug === 'android' && <SiAndroid size={'1.5em'} />}
+              {platform.platform.slug === 'linux' && <SiLinux size={'1.5em'} />}
+              {platform.platform.slug === 'web' && <MdWebAsset size={'1.5em'} />}
+            </>
+          ))}
+        </div>
+        <a
+          href={game.metacritic_url}
+          target="_blank"
+          className={`btn-success btn-sm btn justify-self-end ${game.metacritic < 75 && 'btn-warning'} ${
+            game.metacritic < 50 && 'btn-error'
+          }`}
+          rel="noreferrer"
+        >
+          <p className="font-bold">{game.metacritic}</p>
+        </a>
+      </div>
 
       <div className="flex flex-col">
         <div className="tabs flex-nowrap">
