@@ -8,16 +8,17 @@ import { IGame } from '../types';
 interface Props {
   cart: IUseCartOutput['cart'];
   updateCart: IUseCartOutput['updateCart'];
+  search: string;
 }
 
 function Store(props: Props) {
-  const { cart, updateCart } = props;
+  const { cart, updateCart, search } = props;
   const [data, setData] = useState<IGame[] | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getGameList()
+    getGameList(search)
       .then((result) => {
         const modifiedResponse = result.results.map((item) => {
           // Adds a fake price to each game
@@ -30,7 +31,7 @@ function Store(props: Props) {
         setLoading(false);
       })
       .catch(() => setError(true));
-  }, []);
+  }, [search]);
 
   if (error) {
     return <div className="flex items-center justify-center text-center text-2xl">Looks like an error occured! 😭</div>;
