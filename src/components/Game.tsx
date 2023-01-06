@@ -28,7 +28,7 @@ function Game(props: Props) {
       <div className="hidden items-center rounded-2xl bg-base-100 p-4 md:grid md:grid-cols-[1fr,min-content]">
         <div className="flex gap-2">
           {game.parent_platforms.map((platform) => (
-            <>
+            <div key={platform.platform.id}>
               {platform.platform.slug === 'pc' && <SiWindows size={'1.5em'} />}
               {platform.platform.slug === 'playstation' && <SiPlaystation size={'1.5em'} />}
               {platform.platform.slug === 'xbox' && <SiXbox size={'1.5em'} />}
@@ -38,7 +38,7 @@ function Game(props: Props) {
               {platform.platform.slug === 'android' && <SiAndroid size={'1.5em'} />}
               {platform.platform.slug === 'linux' && <SiLinux size={'1.5em'} />}
               {platform.platform.slug === 'web' && <MdWebAsset size={'1.5em'} />}
-            </>
+            </div>
           ))}
         </div>
         <a
