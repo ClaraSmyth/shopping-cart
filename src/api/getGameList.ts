@@ -1,5 +1,7 @@
 import { IGameList } from '../types';
 
+// API Provided for free by RAWG - https://rawg.io/apidocs
+
 const API_KEY = '2565b73cb1f84944a53974c646e776fa';
 
 async function getGameList(): Promise<IGameList> {
