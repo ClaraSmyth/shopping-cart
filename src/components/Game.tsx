@@ -73,6 +73,8 @@ function Game(props: Props) {
           <div className="card-body gap-4 p-4">
             {subMenuOpen ? (
               <div className="grid h-16 flex-grow auto-rows-min grid-cols-[max-content,1fr] gap-4 overflow-y-scroll pr-2">
+                <p>ESRB Rating:</p>
+                <p>{game.esrb_rating.name}</p>
                 <p>Released:</p>
                 <p>{game.released}</p>
                 <p>Genres:</p>
