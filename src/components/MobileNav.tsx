@@ -12,14 +12,14 @@ function MobileNav(props: Props) {
   return (
     <div className="btm-nav sm:hidden">
       <NavLink to="/" className="text-primary">
-        <MdOutlineHome size={'1.5rem'} />
+        <MdOutlineHome size={'1.5em'} />
       </NavLink>
       <NavLink to="/store" className="text-primary">
-        <MdStorefront size={'1.5rem'} />
+        <MdStorefront size={'1.5em'} />
       </NavLink>
       <label tabIndex={0} htmlFor="checkout-modal" className="text-primary">
         <div className="indicator">
-          <MdOutlineShoppingCart size={'1.5rem'} />
+          <MdOutlineShoppingCart size={'1.5em'} />
           <span className="badge badge-sm indicator-item">{cart.length < 10 ? cart.length : '9+'}</span>
         </div>
       </label>

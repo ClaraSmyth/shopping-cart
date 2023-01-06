@@ -36,7 +36,7 @@ function Navbar(props: Props) {
       {/* Checkout Modal Button */}
       <label tabIndex={0} htmlFor="checkout-modal" className="btn-ghost btn-circle btn ml-2">
         <div className="indicator">
-          <MdOutlineShoppingCart size={'1.5rem'} />
+          <MdOutlineShoppingCart size={'1.5em'} />
           <span className="badge badge-sm indicator-item">{cart.length < 10 ? cart.length : '9+'}</span>
         </div>
       </label>
