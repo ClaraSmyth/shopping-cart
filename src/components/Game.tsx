@@ -62,7 +62,7 @@ function Game(props: Props) {
 
       <div className="hidden items-center rounded-2xl bg-base-100 p-4 md:grid md:grid-cols-[1fr,min-content]">
         <div className="flex gap-2">
-          {game?.parent_platforms.map((platform: any) => (
+          {game?.parent_platforms?.map((platform: any) => (
             <div key={platform.platform.id}>
               {platform.platform.slug === 'pc' && <SiWindows size={'1.5em'} />}
               {platform.platform.slug === 'playstation' && <SiPlaystation size={'1.5em'} />}
@@ -109,24 +109,24 @@ function Game(props: Props) {
             {subMenuOpen ? (
               <div className="grid h-16 flex-grow auto-rows-min grid-cols-[max-content,1fr] gap-4 overflow-y-scroll pr-2">
                 <p>ESRB Rating:</p>
-                <p>{game?.esrb_rating.name}</p>
+                <p>{game?.esrb_rating?.name}</p>
                 <p>Released:</p>
                 <p>{game?.released}</p>
                 <p>Genres:</p>
-                <p>{game?.genres.reduce((string: string, obj: IGame) => `${string} ${obj.name},`, '').slice(0, -1)}</p>
+                <p>{game?.genres?.reduce((string: string, obj: IGame) => `${string} ${obj.name},`, '').slice(0, -1)}</p>
                 <p>Platforms:</p>
                 <p>
                   {game?.platforms
-                    .reduce((string: string, obj: IGame) => `${string} ${obj.platform.name},`, '')
+                    ?.reduce((string: string, obj: IGame) => `${string} ${obj.platform.name},`, '')
                     .slice(0, -1)}
                 </p>
                 <p>Developers:</p>
                 <p>
-                  {game?.developers.reduce((string: string, obj: IGame) => `${string} ${obj.name},`, '').slice(0, -1)}
+                  {game?.developers?.reduce((string: string, obj: IGame) => `${string} ${obj.name},`, '').slice(0, -1)}
                 </p>
                 <p>Publishers:</p>
                 <p>
-                  {game?.publishers.reduce((string: string, obj: IGame) => `${string} ${obj.name},`, '').slice(0, -1)}
+                  {game?.publishers?.reduce((string: string, obj: IGame) => `${string} ${obj.name},`, '').slice(0, -1)}
                 </p>
               </div>
             ) : (
