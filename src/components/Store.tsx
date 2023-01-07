@@ -16,9 +16,10 @@ function Store(props: Props) {
   const [data, setData] = useState<IGame[] | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    getGameList(search)
+    getGameList(search, page)
       .then((result) => {
         const modifiedResponse = result.results.map((item) => {
           // Adds a fake price to each game
@@ -31,7 +32,7 @@ function Store(props: Props) {
         setLoading(false);
       })
       .catch(() => setError(true));
-  }, [search]);
+  }, [search, page]);
 
   if (error) {
     return <div className="flex items-center justify-center text-center text-2xl">Looks like an error occured! 😭</div>;
@@ -53,6 +54,15 @@ function Store(props: Props) {
       {data?.map((obj: any) => (
         <Card key={obj.id} game={obj} cart={cart} updateCart={updateCart} />
       ))}
+      <div className="btn-group col-span-full justify-self-center">
+        <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="btn">
+          «
+        </button>
+        <button className="btn">Page {page}</button>
+        <button onClick={() => setPage((prev) => prev + 1)} className="btn">
+          »
+        </button>
+      </div>
     </div>
   );
 }
