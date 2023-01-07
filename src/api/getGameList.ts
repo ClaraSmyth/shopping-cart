@@ -6,8 +6,8 @@ const API_KEY = '2565b73cb1f84944a53974c646e776fa';
 
 async function getGameList(search: string, page: number): Promise<IGameList> {
   const date = new Date().toISOString().slice(0, 10);
-  const defaultParams = `&metacritic=80,100&dates=2020-01-01,${date}&page=${page}`;
-  const searchParams = `&ordering=metacritic=0,100&search=${search.trim()}&page=${page}`;
+  const defaultParams = `&metacritic=80,100&dates=2020-01-01,${date}&page=${page}&page_size=24`;
+  const searchParams = `&ordering=metacritic=0,100&search=${search.trim()}&page=${page}&page_size=24`;
   const params = search ? searchParams : defaultParams;
 
   const cachedRequests = JSON.parse(sessionStorage.getItem('gameListCache') || '{}');
