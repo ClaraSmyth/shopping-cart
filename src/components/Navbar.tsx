@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import { Link } from 'react-router-dom';
 import { IUseCartOutput } from '../hooks/useCart';
 import { MdOutlineShoppingCart } from 'react-icons/md';
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
   cart: IUseCartOutput['cart'];
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setSearch: Dispatch<SetStateAction<string>>;
 }
 
 function Navbar(props: Props) {
