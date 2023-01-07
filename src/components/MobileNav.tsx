@@ -42,10 +42,10 @@ function MobileNav(props: Props) {
         </form>
       </div>
       <div className="btm-nav sm:hidden">
-        <NavLink to="/" className="text-primary">
+        <NavLink onClick={() => setSearch('')} to="/" className="text-primary">
           <MdOutlineHome size={'1.5em'} />
         </NavLink>
-        <NavLink to="/store" className="text-primary">
+        <NavLink onClick={() => setSearch('')} to="/store" className="text-primary">
           <MdStorefront size={'1.5em'} />
         </NavLink>
         <button onClick={() => setHideSearch((prev) => !prev)} className="text-primary">
