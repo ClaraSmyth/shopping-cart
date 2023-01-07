@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IUseCartOutput } from '../hooks/useCart';
 import { MdOutlineShoppingCart } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   cart: IUseCartOutput['cart'];
@@ -11,6 +12,7 @@ interface Props {
 function Navbar(props: Props) {
   const { cart, setSearch } = props;
   const [searchBarValue, setSearchBarValue] = useState('');
+  const navigate = useNavigate();
 
   return (
     <div className="navbar z-10 hidden h-min bg-base-100 transition-all sm:flex">
@@ -40,8 +42,9 @@ function Navbar(props: Props) {
         className="form-control"
         onSubmit={(e) => {
           e.preventDefault();
-          setSearch(searchBarValue.replace(/\s+/g, ''));
+          setSearch(searchBarValue);
           setSearchBarValue('');
+          navigate('/store');
         }}
       >
         <input
