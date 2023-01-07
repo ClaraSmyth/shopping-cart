@@ -21,7 +21,7 @@ function Game(props: Props) {
   const isInCart = cart.some((item) => item.id === game?.id);
 
   useEffect(() => {
-    getGameData(slug)
+    getGameData(slug || '')
       .then((result) => {
         // Adds a fake price to the game
         const price = result.id % 60 < 10 ? 10 : result.id % 60;
@@ -50,7 +50,7 @@ function Game(props: Props) {
   }
 
   return (
-    <div className="grid max-h-full grid-cols-1 grid-rows-[min-content,2fr,3fr] gap-4 p-4 md:grid-cols-[2fr,1fr] md:grid-rows-[min-content,min-content,1fr]">
+    <div className="grid max-h-full grid-cols-1 grid-rows-[min-content,2fr,3fr] gap-4 p-4 md:grid-cols-[2fr,1fr] md:grid-rows-[min-content,min-content,1fr] xl:grid-cols-[3fr,1fr]">
       <h2 className="card-title justify-center text-center text-2xl md:col-start-2 md:text-[clamp(1.5rem,0.357rem+2.381vw,2.5rem)] md:leading-none">
         {game?.name}
       </h2>
