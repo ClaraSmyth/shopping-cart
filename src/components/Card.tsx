@@ -18,7 +18,7 @@ function Card(props: Props) {
   return (
     <div
       onClick={() => navigate(`/store/${game.slug}`)}
-      className="card card-compact cursor-pointer overflow-hidden bg-base-100 shadow-xl transition hover:scale-105 max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]"
+      className="card-compact card cursor-pointer overflow-hidden bg-base-100 shadow-xl transition hover:scale-105 max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]"
     >
       <figure className="h-28 overflow-hidden rounded-none md:h-44">
         {/* Card Image */}
@@ -36,7 +36,7 @@ function Card(props: Props) {
               e.stopPropagation();
               isInCart ? updateCart.remove(game) : updateCart.add(game);
             }}
-            className={`btn btn-primary btn-sm gap-2 md:h-9 md:min-h-[2.25rem] ${isInCart && 'btn-error'}`}
+            className={`btn-primary btn-sm btn gap-2 text-base md:h-9 md:min-h-[2.25rem] ${isInCart && 'btn-error'}`}
           >
             {isInCart ? <MdOutlineRemoveShoppingCart size={'1.5em'} /> : <MdOutlineAddShoppingCart size={'1.5em'} />}
           </button>
