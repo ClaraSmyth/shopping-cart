@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import { IUseCartOutput } from '../hooks/useCart';
 import { getGameList } from '../api';
@@ -17,6 +17,14 @@ function Store(props: Props) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const container = useRef<HTMLDivElement | null>(null);
+
+  const scrollToTop = () => {
+    container?.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   useEffect(() => {
     getGameList(search, page)
@@ -50,16 +58,33 @@ function Store(props: Props) {
   }
 
   return (
-    <div className="grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-4 overflow-scroll p-4">
+    <div
+      ref={container}
+      className="grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-4 overflow-scroll p-4 md:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] md:gap-6 md:p-6"
+    >
       {data?.map((obj: any) => (
         <Card key={obj.id} game={obj} cart={cart} updateCart={updateCart} />
       ))}
       <div className="btn-group col-span-full justify-self-center">
-        <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="btn">
+        <button
+          onClick={() => {
+            setPage((prev) => (prev === 1 ? prev : prev - 1));
+            scrollToTop();
+          }}
+          className="btn"
+        >
           «
         </button>
-        <button className="btn">Page {page}</button>
-        <button onClick={() => setPage((prev) => prev + 1)} className="btn">
+        <button onClick={scrollToTop} className="btn">
+          Page {page}
+        </button>
+        <button
+          onClick={() => {
+            setPage((prev) => prev + 1);
+            scrollToTop();
+          }}
+          className="btn"
+        >
           »
         </button>
       </div>
