@@ -17,7 +17,7 @@ function App() {
         <Route path="/store/:slug" element={<Game cart={cart} updateCart={updateCart} />} />
       </Routes>
 
-      <MobileNav cart={cart} />
+      <MobileNav cart={cart} setSearch={setSearch} />
       <CheckoutModal cart={cart} updateCart={updateCart} />
     </div>
   );
