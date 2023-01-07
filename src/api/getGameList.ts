@@ -4,10 +4,10 @@ import { IGameList } from '../types';
 
 const API_KEY = '2565b73cb1f84944a53974c646e776fa';
 
-async function getGameList(search: string): Promise<IGameList> {
+async function getGameList(search: string, page: number): Promise<IGameList> {
   const date = new Date().toISOString().slice(0, 10);
-  const defaultParams = `&metacritic=80,100&dates=2020-01-01,${date}`;
-  const searchParams = `&ordering=metacritic=0,100&search=${search.trim()}`;
+  const defaultParams = `&metacritic=80,100&dates=2020-01-01,${date}&page=${page}`;
+  const searchParams = `&ordering=metacritic=0,100&search=${search.trim()}&page=${page}`;
   const params = search ? searchParams : defaultParams;
 
   const cachedRequests = JSON.parse(sessionStorage.getItem('gameListCache') || '{}');
@@ -17,6 +17,7 @@ async function getGameList(search: string): Promise<IGameList> {
 
   if (response.status === 200) {
     const data = await response.json();
+    console.log(data);
     cachedRequests[params] = data;
     sessionStorage.setItem('gameListCache', JSON.stringify(cachedRequests));
     return data;
