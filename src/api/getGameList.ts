@@ -17,7 +17,6 @@ async function getGameList(search: string, page: number): Promise<IGameList> {
 
   if (response.status === 200) {
     const data = await response.json();
-    console.log(data);
     cachedRequests[params] = data;
     sessionStorage.setItem('gameListCache', JSON.stringify(cachedRequests));
     return data;
