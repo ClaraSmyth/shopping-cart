@@ -18,15 +18,11 @@ function Home() {
         </p>
 
         {/* Button */}
-        <Link to="/store" className="btn-primary btn m-auto w-max sm:m-0 md:btn-lg">
+        <Link to="/store" className="btn btn-primary m-auto w-max sm:m-0 md:btn-lg">
           Explore Now
         </Link>
 
         {/* Styled circles */}
-        {/* <div
-          style={{ backfaceVisibility: 'hidden' }}
-          className="absolute -left-1/2 -top-[15%] -z-10 aspect-square w-[80%] rounded-full bg-secondary-focus"
-        ></div> */}
         <div
           style={{ backfaceVisibility: 'hidden', maskRepeat: 'no-repeat' }}
           className="mask mask-star absolute -left-[9%] -top-[14vw] -z-10 aspect-square h-[50vw] rotate-12 bg-secondary-focus"
