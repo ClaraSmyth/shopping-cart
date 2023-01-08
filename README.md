@@ -13,7 +13,7 @@
 
 ## Description
 
-This is a webpage with a shopping cart created as part of [TheOdinProject](https://www.theodinproject.com) curriculum.
+A fake game store with a shopping cart created as part of [TheOdinProject](https://www.theodinproject.com) curriculum.
 
 To see the assignment details - [Click Here](https://www.theodinproject.com/lessons/node-path-javascript-shopping-cart)
 
@@ -27,20 +27,32 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 
 ## Credits
 
+#### API
+
+- [RAWG](https://rawg.io/apidocs)
+
 #### Libraries
 
-#### Images
+- [Framer Motion](https://www.framer.com/motion/)
+- [Daisy UI](https://daisyui.com/)
 
 #### Icons
 
 - [React Icons](https://github.com/react-icons/react-icons)
+- [Google Material Icons](https://fonts.google.com/icons)
 - [Simple Icons](https://simpleicons.org/)
 
 ## Gallery
 
 #### Desktop
 
-<img src="./readme-assets/desktop.png" alt="Image of project on Desktop" />
+<img src="./readme-assets/desktop-1.png" alt="Image of project on Desktop" />
+
+<img src="./readme-assets/desktop-2.png" alt="Image of project on Desktop" />
+
+<img src="./readme-assets/desktop-3.png" alt="Image of project on Desktop" />
+
+<img src="./readme-assets/desktop-4.png" alt="Image of project on Desktop" />
 
 #### Mobile
 
