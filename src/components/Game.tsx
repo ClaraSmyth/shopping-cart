@@ -5,6 +5,7 @@ import { SiWindows, SiPlaystation, SiXbox, SiNintendo, SiApple, SiIos, SiAndroid
 import { getGameData } from '../api';
 import { useParams } from 'react-router-dom';
 import { IGame } from '../types';
+import { motion } from 'framer-motion';
 
 interface Props {
   cart: IUseCartOutput['cart'];
@@ -59,10 +60,13 @@ function Game(props: Props) {
         {game?.name}
       </h2>
 
-      <div
+      <motion.div
+        initial={{ translateX: '-5%' }}
+        animate={{ translateX: '0' }}
+        transition={{ type: 'spring', stiffness: 30 }}
         style={{ backgroundImage: `url(${game?.background_image})` }}
         className="relative flex items-center overflow-hidden rounded-2xl bg-slate-500 bg-cover bg-center md:col-end-2 md:row-span-3 md:row-start-1"
-      ></div>
+      ></motion.div>
 
       <div className="hidden items-center rounded-2xl bg-base-100 p-4 md:grid md:grid-cols-[1fr,min-content]">
         <div className="flex gap-2">
@@ -83,7 +87,7 @@ function Game(props: Props) {
         <a
           href={game?.metacritic_url}
           target="_blank"
-          className={`btn-success btn-sm btn justify-self-end ${game?.metacritic < 75 && 'btn-warning'} ${
+          className={`btn btn-success btn-sm justify-self-end ${game?.metacritic < 75 && 'btn-warning'} ${
             game?.metacritic < 50 && 'btn-error'
           }`}
           rel="noreferrer"
@@ -139,7 +143,7 @@ function Game(props: Props) {
             <div className="card-actions justify-end">
               <button
                 onClick={() => game && (isInCart ? updateCart.remove(game) : updateCart.add(game))}
-                className={`btn-primary btn w-full flex-nowrap justify-between gap-2 ${isInCart && 'btn-error'}`}
+                className={`btn btn-primary w-full flex-nowrap justify-between gap-2 ${isInCart && 'btn-error'}`}
               >
                 <div className="text-lg">£{game?.price}</div>
                 <div className="flex flex-nowrap items-center gap-2">
