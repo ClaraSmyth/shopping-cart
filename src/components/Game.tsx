@@ -35,7 +35,11 @@ function Game(props: Props) {
   }, [slug]);
 
   if (error) {
-    return <div className="flex items-center justify-center text-center text-2xl">Looks like an error occured! 😭</div>;
+    return (
+      <div className="flex items-center justify-center text-center text-3xl font-bold">
+        Looks like something went wrong! 😭
+      </div>
+    );
   }
 
   if (loading) {

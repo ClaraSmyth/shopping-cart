@@ -28,6 +28,10 @@ function Store(props: Props) {
 
   useEffect(() => {
     scrollToTop();
+  }, [data]);
+
+  useEffect(() => {
+    setLoading(true);
 
     getGameList(search, page)
       .then((result) => {
@@ -45,7 +49,11 @@ function Store(props: Props) {
   }, [search, page]);
 
   if (error) {
-    return <div className="flex items-center justify-center text-center text-2xl">Looks like an error occured! 😭</div>;
+    return (
+      <div className="flex items-center justify-center text-center text-3xl font-bold">
+        Looks like something went wrong! 😭
+      </div>
+    );
   }
 
   if (loading) {
