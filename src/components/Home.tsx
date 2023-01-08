@@ -28,7 +28,7 @@ function Home() {
           className="absolute -left-1/2 -top-[15%] -z-10 aspect-square w-[80%] rounded-full bg-secondary-focus"
         ></div> */}
         <div
-          style={{ backfaceVisibility: 'hidden' }}
+          style={{ backfaceVisibility: 'hidden', maskRepeat: 'no-repeat' }}
           className="mask mask-star absolute -left-[9%] -top-[14vw] -z-10 aspect-square h-[50vw] rotate-12 bg-secondary-focus"
         ></div>
         <div className="absolute bottom-[5%] -right-[15%] -z-10 aspect-square w-[40%] rotate-45 rounded-full bg-accent"></div>
