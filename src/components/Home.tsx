@@ -13,8 +13,9 @@ function Home() {
           <span
             style={{
               background: 'linear-gradient(to right, hsl(var(--s)), hsl(var(--a)))',
-              WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
             Latest Games
