@@ -3,22 +3,27 @@ import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-ico
 import { IUseCartOutput } from '../hooks/useCart';
 import { IGame } from '../types';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface Props {
+  index: number;
   game: IGame;
   cart: IUseCartOutput['cart'];
   updateCart: IUseCartOutput['updateCart'];
 }
 
 function Card(props: Props) {
-  const { game, cart, updateCart } = props;
+  const { index, game, cart, updateCart } = props;
   const isInCart = cart.some((item) => item.id === game.id);
   const navigate = useNavigate();
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
       onClick={() => navigate(`/store/${game.slug}`)}
-      className="card card-compact cursor-pointer overflow-hidden bg-base-100 shadow-xl transition hover:scale-105 max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]"
+      className="card-compact card cursor-pointer overflow-hidden bg-base-100 shadow-xl transition hover:scale-105 max-[430px]:grid max-[430px]:grid-cols-[40%,1fr]"
     >
       <figure className="h-28 overflow-hidden rounded-none md:h-44">
         {/* Card Image */}
@@ -42,13 +47,13 @@ function Card(props: Props) {
               e.stopPropagation();
               isInCart ? updateCart.remove(game) : updateCart.add(game);
             }}
-            className={`btn-primary btn-sm btn gap-2 text-base md:h-9 md:min-h-[2.25rem] ${isInCart && 'btn-error'}`}
+            className={`btn btn-primary btn-sm gap-2 text-base md:h-9 md:min-h-[2.25rem] ${isInCart && 'btn-error'}`}
           >
             {isInCart ? <MdOutlineRemoveShoppingCart size={'1.5em'} /> : <MdOutlineAddShoppingCart size={'1.5em'} />}
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
