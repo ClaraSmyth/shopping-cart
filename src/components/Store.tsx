@@ -27,6 +27,8 @@ function Store(props: Props) {
   };
 
   useEffect(() => {
+    scrollToTop();
+
     getGameList(search, page)
       .then((result) => {
         const modifiedResponse = result.results.map((item) => {
@@ -66,25 +68,13 @@ function Store(props: Props) {
         <Card key={obj.id} game={obj} cart={cart} updateCart={updateCart} />
       ))}
       <div className="btn-group col-span-full justify-self-center">
-        <button
-          onClick={() => {
-            setPage((prev) => (prev === 1 ? prev : prev - 1));
-            scrollToTop();
-          }}
-          className="btn"
-        >
+        <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="btn">
           «
         </button>
         <button onClick={scrollToTop} className="btn">
           Page {page}
         </button>
-        <button
-          onClick={() => {
-            setPage((prev) => prev + 1);
-            scrollToTop();
-          }}
-          className="btn"
-        >
+        <button onClick={() => setPage((prev) => prev + 1)} className="btn">
           »
         </button>
       </div>
