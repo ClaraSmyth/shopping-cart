@@ -72,8 +72,8 @@ function Store(props: Props) {
       ref={container}
       className="grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-4 overflow-scroll p-4 md:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] md:gap-6 md:p-6"
     >
-      {data?.map((obj: any) => (
-        <Card key={obj.id} game={obj} cart={cart} updateCart={updateCart} />
+      {data?.map((obj: any, index) => (
+        <Card key={obj.id} index={index} game={obj} cart={cart} updateCart={updateCart} />
       ))}
       <div className="btn-group col-span-full justify-self-center">
         <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="btn">
