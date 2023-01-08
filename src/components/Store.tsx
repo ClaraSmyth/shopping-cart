@@ -60,7 +60,7 @@ function Store(props: Props) {
   return (
     <div
       ref={container}
-      className="grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-4 overflow-scroll p-4 md:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] md:gap-6 md:p-6"
+      className="grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-4 overflow-scroll p-4 md:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] md:gap-6 md:p-6"
     >
       {data?.map((obj: any) => (
         <Card key={obj.id} game={obj} cart={cart} updateCart={updateCart} />

@@ -38,7 +38,7 @@ function CheckoutCard(props: Props) {
             <option>8</option>
             <option>9</option>
           </select>
-          <button onClick={() => updateCart.remove(game)} className="btn-error btn-xs btn px-1">
+          <button onClick={() => updateCart.remove(game)} className="btn btn-error btn-xs px-1">
             <MdDeleteForever size={'20px'} />
           </button>
         </div>

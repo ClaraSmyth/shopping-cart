@@ -18,7 +18,7 @@ function MobileNav(props: Props) {
   return (
     <>
       <div
-        className={`visible fixed w-full bg-base-100 p-4 opacity-100 transition-[opacity_visibility_transform] duration-200 sm:hidden ${
+        className={`visible fixed w-full bg-base-100 p-4 opacity-100 shadow-md transition-[opacity_visibility_transform] duration-200 sm:hidden ${
           hideSearch && 'invisible -translate-y-full opacity-0'
         }`}
       >
@@ -41,7 +41,7 @@ function MobileNav(props: Props) {
           />
         </form>
       </div>
-      <div className="btm-nav sm:hidden">
+      <div className="btm-nav shadow sm:hidden">
         <NavLink onClick={() => setSearch('')} to="/" className="text-primary">
           <MdOutlineHome size={'1.5em'} />
         </NavLink>

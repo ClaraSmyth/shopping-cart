@@ -29,7 +29,7 @@ function Card(props: Props) {
         <h2 className="custom-text-ellipsis-1 card-title">{game.name}</h2>
         <div className="card-actions min-w-max items-center justify-between">
           {/* Price Badge */}
-          <button className="badge badge-lg md:p-4 md:text-lg md:font-semibold">£{game.price}</button>
+          <button className="badge-secondary badge badge-lg md:p-4 md:text-lg md:font-semibold">£{game.price}</button>
           {/* But Now Button */}
           <button
             onClick={(e) => {
