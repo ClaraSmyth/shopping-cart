@@ -15,7 +15,7 @@ function Navbar(props: Props) {
   const navigate = useNavigate();
 
   return (
-    <div className="navbar z-10 hidden h-min bg-base-100 transition-all sm:flex">
+    <div className="navbar z-10 hidden h-min bg-base-100 transition-all sm:flex md:px-4">
       {/* Logo */}
       <div>
         <Link to="/" className="btn-ghost btn text-xl normal-case">
