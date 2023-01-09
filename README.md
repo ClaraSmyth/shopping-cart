@@ -33,6 +33,7 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 
 #### Libraries
 
+- [React Router](https://reactrouter.com)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Daisy UI](https://daisyui.com/)
 
