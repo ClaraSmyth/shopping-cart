@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import { IUseCartOutput } from '../hooks/useCart';
+import { IUseSearchOutput } from '../hooks/useSearch';
 import { getGameList } from '../api';
 import { MdSettings } from 'react-icons/md';
 import { IGame } from '../types';
@@ -8,15 +9,15 @@ import { IGame } from '../types';
 interface Props {
   cart: IUseCartOutput['cart'];
   updateCart: IUseCartOutput['updateCart'];
-  search: string;
+  search: [string, number];
+  updateSearch: IUseSearchOutput['updateSearch'];
 }
 
 function Store(props: Props) {
-  const { cart, updateCart, search } = props;
+  const { cart, updateCart, search, updateSearch } = props;
   const [data, setData] = useState<IGame[] | null>(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
   const container = useRef<HTMLDivElement | null>(null);
 
   const scrollToTop = () => {
@@ -33,7 +34,7 @@ function Store(props: Props) {
   useEffect(() => {
     setLoading(true);
 
-    getGameList(search, page)
+    getGameList(search[0], search[1])
       .then((result) => {
         const modifiedResponse = result.results.map((item) => {
           // Adds a fake price to each game
@@ -46,7 +47,7 @@ function Store(props: Props) {
         setLoading(false);
       })
       .catch(() => setError(true));
-  }, [search, page]);
+  }, [search]);
 
   if (error) {
     return (
@@ -76,13 +77,13 @@ function Store(props: Props) {
         <Card key={obj.id} index={index} game={obj} cart={cart} updateCart={updateCart} />
       ))}
       <div className="btn-group col-span-full justify-self-center">
-        <button onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))} className="btn">
+        <button onClick={updateSearch.pageDown} className="btn">
           «
         </button>
         <button onClick={scrollToTop} className="btn">
-          Page {page}
+          Page {search[1]}
         </button>
-        <button onClick={() => setPage((prev) => prev + 1)} className="btn">
+        <button onClick={updateSearch.pageUp} className="btn">
           »
         </button>
       </div>

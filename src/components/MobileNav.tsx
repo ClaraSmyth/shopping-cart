@@ -1,16 +1,17 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IGame } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { MdStorefront, MdOutlineShoppingCart, MdOutlineHome, MdOutlineSearch } from 'react-icons/md';
+import { IUseSearchOutput } from '../hooks/useSearch';
 
 interface Props {
   cart: IGame[];
-  setSearch: Dispatch<SetStateAction<string>>;
+  updateSearch: IUseSearchOutput['updateSearch'];
 }
 
 function MobileNav(props: Props) {
-  const { cart, setSearch } = props;
+  const { cart, updateSearch } = props;
   const [hideSearch, setHideSearch] = useState(true);
   const [searchBarValue, setSearchBarValue] = useState('');
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function MobileNav(props: Props) {
           onSubmit={(e) => {
             e.preventDefault();
             setHideSearch((prev) => !prev);
-            setSearch(searchBarValue);
+            updateSearch.newSearch(searchBarValue);
             setSearchBarValue('');
             navigate('/store');
           }}
@@ -42,10 +43,10 @@ function MobileNav(props: Props) {
         </form>
       </div>
       <div className="btm-nav shadow sm:hidden">
-        <NavLink onClick={() => setSearch('')} to="/" className="text-primary">
+        <NavLink onClick={updateSearch.reset} to="/" className="text-primary">
           <MdOutlineHome size={'1.5em'} />
         </NavLink>
-        <NavLink onClick={() => setSearch('')} to="/store" className="text-primary">
+        <NavLink onClick={updateSearch.reset} to="/store" className="text-primary">
           <MdStorefront size={'1.5em'} />
         </NavLink>
         <button onClick={() => setHideSearch((prev) => !prev)} className="text-primary">

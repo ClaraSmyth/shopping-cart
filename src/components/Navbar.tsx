@@ -1,16 +1,17 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IUseCartOutput } from '../hooks/useCart';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { IUseSearchOutput } from '../hooks/useSearch';
 
 interface Props {
   cart: IUseCartOutput['cart'];
-  setSearch: Dispatch<SetStateAction<string>>;
+  updateSearch: IUseSearchOutput['updateSearch'];
 }
 
 function Navbar(props: Props) {
-  const { cart, setSearch } = props;
+  const { cart, updateSearch } = props;
   const [searchBarValue, setSearchBarValue] = useState('');
   const navigate = useNavigate();
 
@@ -26,12 +27,12 @@ function Navbar(props: Props) {
       {/* Nav Items */}
       <ul className="menu rounded-box menu-horizontal flex-1 flex-nowrap gap-2 bg-base-100 p-2">
         <li>
-          <Link onClick={() => setSearch('')} to="/">
+          <Link onClick={updateSearch.reset} to="/">
             Home
           </Link>
         </li>
         <li>
-          <Link onClick={() => setSearch('')} to="/store">
+          <Link onClick={updateSearch.reset} to="/store">
             Store
           </Link>
         </li>
@@ -42,7 +43,7 @@ function Navbar(props: Props) {
         className="form-control"
         onSubmit={(e) => {
           e.preventDefault();
-          setSearch(searchBarValue);
+          updateSearch.newSearch(searchBarValue);
           setSearchBarValue('');
           navigate('/store');
         }}
