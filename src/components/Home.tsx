@@ -24,12 +24,11 @@ function Home() {
 
         {/* Secondary Text */}
         <p className="flex-wrap text-center text-[clamp(0.9rem,0.821rem+0.421vw,1.2rem)] text-base sm:max-w-[60%]">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit beatae tempore excepturi quis non eligendi
-          autem culpa
+          We stock the largest online collection of games from every platform imaginable
         </p>
 
         {/* Button */}
-        <Link to="/store" className="btn btn-primary m-auto w-max sm:m-0 md:btn-lg">
+        <Link to="/store" className="btn-primary btn m-auto w-max sm:m-0 md:btn-lg">
           Explore Now
         </Link>
 
