@@ -94,7 +94,7 @@ function Game(props: Props) {
           }`}
           rel="noreferrer"
         >
-          <p className="font-bold">{game?.metacritic}</p>
+          <p className="font-bold">{game?.metacritic || 'No Rating'}</p>
         </a>
       </div>
 
