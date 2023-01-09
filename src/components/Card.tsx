@@ -17,6 +17,16 @@ function Card(props: Props) {
   const isInCart = cart.some((item) => item.id === game.id);
   const navigate = useNavigate();
 
+  const resizeBgImage = (string: string) => {
+    const part1 = string.substring(0, 28);
+    const part2 = string.substring(27);
+    const resize = 'resize/640/-';
+
+    return part1 + resize + part2;
+  };
+
+  resizeBgImage(game.background_image);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -31,7 +41,7 @@ function Card(props: Props) {
           style={{ imageRendering: '-webkit-optimize-contrast', transform: 'translateZ(0) scale(0.999999)' }}
           className="min-h-full object-cover"
           loading="lazy"
-          src={game.background_image}
+          src={resizeBgImage(game.background_image)}
           alt="Shoes"
         />
       </figure>
@@ -47,7 +57,7 @@ function Card(props: Props) {
               e.stopPropagation();
               isInCart ? updateCart.remove(game) : updateCart.add(game);
             }}
-            className={`btn btn-primary btn-sm gap-2 text-base md:h-9 md:min-h-[2.25rem] ${isInCart && 'btn-error'}`}
+            className={`btn-primary btn-sm btn gap-2 text-base md:h-9 md:min-h-[2.25rem] ${isInCart && 'btn-error'}`}
           >
             {isInCart ? <MdOutlineRemoveShoppingCart size={'1.5em'} /> : <MdOutlineAddShoppingCart size={'1.5em'} />}
           </button>
