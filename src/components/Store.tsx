@@ -22,7 +22,7 @@ function Store(props: Props) {
   const scrollToTop = () => {
     container?.current?.scrollTo({
       top: 0,
-      behavior: 'auto',
+      behavior: 'smooth',
     });
   };
 
