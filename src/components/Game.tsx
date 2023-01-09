@@ -64,7 +64,9 @@ function Game(props: Props) {
         initial={{ translateX: '-5%' }}
         animate={{ translateX: '0' }}
         transition={{ type: 'spring', stiffness: 30 }}
-        style={{ backgroundImage: `url(${game?.background_image})` }}
+        style={{
+          backgroundImage: `url(${game?.background_image || 'https://placehold.co/600x400?text=No+Image+Found'})`,
+        }}
         className="relative flex items-center overflow-hidden rounded-2xl bg-slate-500 bg-cover bg-center md:col-end-2 md:row-span-3 md:row-start-1"
       ></motion.div>
 
@@ -87,7 +89,7 @@ function Game(props: Props) {
         <a
           href={game?.metacritic_url}
           target="_blank"
-          className={`btn btn-success btn-sm justify-self-end ${game?.metacritic < 75 && 'btn-warning'} ${
+          className={`btn-success btn-sm btn justify-self-end ${game?.metacritic < 75 && 'btn-warning'} ${
             game?.metacritic < 50 && 'btn-error'
           }`}
           rel="noreferrer"
@@ -143,7 +145,7 @@ function Game(props: Props) {
             <div className="card-actions justify-end">
               <button
                 onClick={() => game && (isInCart ? updateCart.remove(game) : updateCart.add(game))}
-                className={`btn btn-primary w-full flex-nowrap justify-between gap-2 ${isInCart && 'btn-error'}`}
+                className={`btn-primary btn w-full flex-nowrap justify-between gap-2 ${isInCart && 'btn-error'}`}
               >
                 <div className="text-lg">£{game?.price}</div>
                 <div className="flex flex-nowrap items-center gap-2">

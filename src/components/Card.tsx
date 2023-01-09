@@ -17,15 +17,14 @@ function Card(props: Props) {
   const isInCart = cart.some((item) => item.id === game.id);
   const navigate = useNavigate();
 
-  const resizeBgImage = (string: string) => {
-    const part1 = string.substring(0, 28);
-    const part2 = string.substring(27);
+  const resizeBgImage = (string: string | null) => {
+    if (!string) return 'https://placehold.co/600x400?text=No+Image+Found';
+    const part1 = string?.substring(0, 28);
+    const part2 = string?.substring(27);
     const resize = 'resize/640/-';
 
     return part1 + resize + part2;
   };
-
-  resizeBgImage(game.background_image);
 
   return (
     <motion.div
