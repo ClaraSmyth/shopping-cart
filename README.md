@@ -41,6 +41,7 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 
 - [React Icons](https://github.com/react-icons/react-icons)
 - [Google Material Icons](https://fonts.google.com/icons)
+- [Ionicons](https://ionic.io/ionicons/)
 - [Simple Icons](https://simpleicons.org/)
 
 ## Gallery
