@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SiGithub } from 'react-icons/si';
+import { IoMdStar } from 'react-icons/io';
 import { motion } from 'framer-motion';
 
 function Home() {
@@ -38,8 +39,10 @@ function Home() {
           animate={{ translateX: '0', translateY: '0', rotate: '15deg' }}
           transition={{ type: 'spring', stiffness: 30 }}
           style={{ backfaceVisibility: 'hidden', maskRepeat: 'no-repeat' }}
-          className="mask mask-star absolute -left-[9%] -top-[14vw] -z-10 aspect-square h-[50vw] rotate-45 bg-secondary"
-        ></motion.div>
+          className="mask mask-star absolute -left-[9%] -top-[14vw] -z-10 rotate-45 text-secondary"
+        >
+          <IoMdStar style={{ height: '50vw', width: '50vw' }} />
+        </motion.div>
         <motion.div
           initial={{ translateX: '10%', translateY: '10%' }}
           animate={{ translateX: '0', translateY: '0' }}
